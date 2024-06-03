@@ -1,0 +1,48 @@
+{
+  "title": "Ringga Revanka | Link",
+  "author": "Ringga Revanka",
+  "copyright": "2024 Ringga Revanka",
+  "description": "Ringga Revanka's personal link page.",
+  "profilePicture": "https://avatars.githubusercontent.com/u/99320495",
+  "userName": "@ringgarevanka",
+  "links": [
+    {
+      "href": "https://github.com/ringgarevanka",
+      "icon": "fa-brands fa-github",
+      "text": "Github"
+    },
+    {
+      "href": "https://www.tiktok.com/@ringgarevanka",
+      "icon": "fa-brands fa-tiktok",
+      "text": "TikTok"
+    },
+    {
+      "href": "https://www.facebook.com/ringgarevanka",
+      "icon": "fa-brands fa-facebook",
+      "text": "Facebook"
+    },
+    {
+      "href": "https://www.instagram.com/ringgarevanka",
+      "icon": "fa-brands fa-instagram",
+      "text": "Instagram"
+    },
+    {
+      "href": "https://x.com/ringgarevanka",
+      "icon": "fa-brands fa-x-twitter",
+      "text": "X (Twitter)"
+    },
+    {
+      "href": "https://myanimelist.net/profile/ringgarevanka",
+      "icon": "fa-solid fa-circle-play",
+      "text": "MyAnimeList"
+    }
+  ],
+  "hashtag": "> /dev/null 2&>1",
+  "meta": {
+    "ogDescription": "Hello World.",
+    "ogImage": "https://avatars.githubusercontent.com/u/99320495",
+    "ogTitle": "Ringga Revanka | Link",
+    "appleTouchIcon": "https://avatars.githubusercontent.com/u/99320495",
+    "favicon": "https://avatars.githubusercontent.com/u/99320495"
+  }
+}

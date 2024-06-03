@@ -1,0 +1,38 @@
+{
+  "background_color": "#000000",
+  "description": "Hello World.",
+  "dir": "auto",
+  "display": "standalone",
+  "name": "Ringga Revanka",
+  "orientation": "natural",
+  "scope": "/",
+  "short_name": "Ringga",
+  "start_url": "https://ringgarevanka.github.io/",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "https://avatars.githubusercontent.com/u/99320495",
+      "type": "image/jpeg",
+      "sizes": "460x460"
+    }
+  ],
+  "id": "ringga-pwa",
+  "lang": "en",
+  "display_override": [
+    "fullscreen",
+    "minimal-ui",
+    "window-controls-overlay"
+  ],
+  "shortcuts": [
+    {
+      "name": "Main",
+      "url": "https://ringgarevanka.github.io/",
+      "description": "MainActivity"
+    },
+    {
+      "name": "Link",
+      "url": "https://ringgarevanka.github.io/link",
+      "description": "LinkActivity"
+    }
+  ]
+}
