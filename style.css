@@ -66,7 +66,7 @@ body {
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
-    padding: 17px; /* 10px */
+    padding: 14px; /* 17px/10px */
     text-decoration: none;
     transition: all .25s cubic-bezier(.08, .59, .29, .99);
     -webkit-tap-highlight-color: transparent;
