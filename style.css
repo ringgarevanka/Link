@@ -8,6 +8,16 @@
     --accentColor: #FFF;
     --font: 'Karla', sans-serif;
     --delay: .3s;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10 */
+    user-select: none; /* Standard */
+}
+
+::selection {
+    background-color: var(--bgColor);
+    color: var(--accentColor);
 }
 
 body {
@@ -32,7 +42,6 @@ body {
     display: block;
     margin: 40px auto 20px;
     border-radius: 50%;
-    -webkit-tap-highlight-color: transparent;
 }
 
 #userName {
@@ -69,7 +78,6 @@ body {
     padding: 14px; /* 17px/10px */
     text-decoration: none;
     transition: all .25s cubic-bezier(.08, .59, .29, .99);
-    -webkit-tap-highlight-color: transparent;
 }
 
 @media (hover: hover) {
