@@ -30,7 +30,7 @@ body {
     min-height: 100vh;
     font-family: var(--font);
     background: radial-gradient(ellipse at bottom, var(--bgColor) 0%, var(--bgColor2) 100%);
-    background-image: url('bg.jpg');
+    background-image: url('https://img.goodfon.com/original/1920x1200/d/4a/firewatch-campo-santo-vid-les-peizazh-igra-art-gory-pozharny.jpg');
     opacity: 0;
     animation: 1s ease-out var(--delay) 1 transitionAnimation;
     /* duration/timing-function/delay/iterations/name */
