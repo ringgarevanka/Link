@@ -88,7 +88,7 @@ document.addEventListener('keydown', event => {
 document.addEventListener('paste', event => event.preventDefault());
 
 
-/* Ignore Below is a test code 
+/*// Ignore Below is a test code //
 // Disable right-click context menu (method 1)
 document.addEventListener('contextmenu', function(event) {
     event.preventDefault();
