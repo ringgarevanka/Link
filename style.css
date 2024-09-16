@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-@import url("https://use.fontawesome.com/releases/v6.5.2/css/all.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css");
 @import url("parallax.css");
 
 :root {
@@ -8,14 +7,19 @@
     --bgColor2: #090a0f;
     --accentColor: #FFF;
     --font: 'Karla', sans-serif;
+    --font2: 'Quicksand', sans-serif;
     --delay: .3s;
     -webkit-tap-highlight-color: transparent;
+
     -webkit-user-select: none;
     /* Safari */
+
     -moz-user-select: none;
     /* Firefox */
+
     -ms-user-select: none;
     /* IE10 */
+
     user-select: none;
     /* Standard */
 }
@@ -29,12 +33,12 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    font-family: var(--font);
+    font-family: var(--font2);
     background: radial-gradient(ellipse at bottom, var(--bgColor) 0%, var(--bgColor2) 100%);
     background-image: url('https://img.goodfon.com/original/1920x1200/d/4a/firewatch-campo-santo-vid-les-peizazh-igra-art-gory-pozharny.jpg');
+    filter: blur(8px);
     opacity: 0;
-    animation: 1s ease-out var(--delay) 1 transitionAnimation;
-    /* duration/timing-function/delay/iterations/name */
+    animation: clearBlur 1s ease forwards, fadeIn 1.5s ease-out var(--delay) forwards;
     animation-fill-mode: forwards;
     background-repeat: no-repeat;
     background-size: cover;
@@ -115,7 +119,7 @@ body {
     /*background: linear-gradient(90deg, var(--bgColor), var(--accentColor), var(--bgColor));*/
     /*background-repeat: no-repeat;*/
     /*background-size: 80%;*/
-    /*animation: animate 3s linear var(--delay) infinite;*/
+    /*animation: animateBackground 3s linear var(--delay) infinite;*/
     /*-webkit-background-clip: text;*/
     /*background-clip: text;*/
     /*-webkit-text-fill-color: rgba(255, 255, 255, 0);*/
@@ -123,7 +127,17 @@ body {
 
 
 /*-------------------------animations-----------------------*/
-@keyframes transitionAnimation {
+@keyframes clearBlur {
+    0% {
+        filter: blur(8px);
+    }
+
+    100% {
+        filter: blur(0);
+    }
+}
+
+@keyframes fadeIn {
     0% {
         opacity: 0;
         transform: translateY(-10px);
@@ -135,15 +149,15 @@ body {
     }
 }
 
-@keyframes animate {
-    0% {
-        background-position: -500%;
-    }
-
-    100% {
-        background-position: 500%;
-    }
-}
+/*@keyframes animateBackground {*/
+    /*0% {*/
+        /*background-position: -500%;*/
+    /*}*/
+/**/
+    /*100% {*/
+        /*background-position: 500%;*/
+    /*}*/
+/*}*/
 
 @keyframes animStar {
     from {
