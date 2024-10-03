@@ -33,6 +33,11 @@
             "name": "Link",
             "url": "https://ringgarevanka.github.io/Link",
             "description": "/Link"
+        },
+        {
+            "name": "Site",
+            "url": "https://ringgarevanka.github.io/site",
+            "description": "/site"
         }
     ]
 }
