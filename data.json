@@ -40,11 +40,6 @@
             "href": "https://myanimelist.net/profile/ringgarevanka",
             "icon": "fa-solid fa-circle-play",
             "text": "MyAnimeList"
-        },
-        {
-            "href": "https://github.com/ringgarevanka/bash/tree/termuxsetup",
-            "icon": "fa-solid fa-terminal",
-            "text": "[projects (bash/shell)] Termux Setup"
         }
     ],
     "hashtag": "> /dev/null 2&>1",
