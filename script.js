@@ -34,7 +34,6 @@ function fetchAndCacheData() {
     .catch(error => console.error('Error fetching data:', error));
 }
 
-// Function to update HTML elements
 function updateHTMLElement(selector, value) {
   const element = document.querySelector(selector);
   if (element) {
@@ -42,52 +41,69 @@ function updateHTMLElement(selector, value) {
   }
 }
 
-getCachedData()
-  .then(data => {
-    // Filling data in HTML elements
-    document.title = data.title;
-    updateHTMLElement('meta[name="author"]', data.author);
-    updateHTMLElement('meta[name="copyright"]', data.copyright);
-    updateHTMLElement('meta[name="description"]', data.description);
-    updateHTMLElement('meta[property="og:description"]', data.meta.ogDescription);
-    updateHTMLElement('meta[property="og:image"]', data.meta.ogImage);
-    updateHTMLElement('meta[property="og:title"]', data.meta.ogTitle);
-    updateHTMLElement('link[rel="apple-touch-icon"]', data.meta.appleTouchIcon);
-    updateHTMLElement('link[rel="icon"]', data.meta.favicon);
-    const profilePictureImg = document.querySelector('#profilePicture img');
-    if (profilePictureImg) profilePictureImg.setAttribute('src', data.profilePicture);
-    const userNameElem = document.getElementById('userName');
-    if (userNameElem) userNameElem.innerText = data.userName;
-    const hashtagElem = document.getElementById('hashtag');
-    if (hashtagElem) hashtagElem.innerText = data.hashtag;
+function displayData(data) {
+  // Filling data in HTML elements
+  document.title = data.title;
+  updateHTMLElement('meta[name="author"]', data.author);
+  updateHTMLElement('meta[name="copyright"]', data.copyright);
+  updateHTMLElement('meta[name="description"]', data.description);
+  updateHTMLElement('meta[property="og:description"]', data.meta.ogDescription);
+  updateHTMLElement('meta[property="og:image"]', data.meta.ogImage);
+  updateHTMLElement('meta[property="og:title"]', data.meta.ogTitle);
+  updateHTMLElement('link[rel="apple-touch-icon"]', data.meta.appleTouchIcon);
+  updateHTMLElement('link[rel="icon"]', data.meta.favicon);
+  const profilePictureImg = document.querySelector('#profilePicture img');
+  if (profilePictureImg) profilePictureImg.setAttribute('src', data.profilePicture);
+  const userNameElem = document.getElementById('userName');
+  if (userNameElem) userNameElem.innerText = data.userName;
+  const hashtagElem = document.getElementById('hashtag');
+  if (hashtagElem) hashtagElem.innerText = data.hashtag;
 
-    // Fill in the data in the links section
-    const linksDiv = document.getElementById('links');
-    if (linksDiv) {
-      data.links.forEach(link => {
-        const a = document.createElement('a');
-        a.className = 'link';
-        a.href = link.href;
-        a.target = '_blank';
-        a.innerHTML = `<i class="${link.icon}">&nbsp;</i>${link.text}`;
-        linksDiv.appendChild(a);
-      });
-    }
-  })
-  .catch(error => {
-    console.error('Error retrieving data:', error);
-    // Show clearer error messages to users
-    const errorElement = document.getElementById('errorMessage');
-    if (errorElement) {
-      errorElement.textContent = 'An error occurred while loading data. Please try again later.';
-    }
-  });
-
-// If the data is not in the cache, fetch it from the server and save it to the cache.
-if (!cachedData) {
-  fetchAndCacheData()
-    .catch(error => console.error('Error fetching and caching data:', error));
+  // Fill in the data in the links section
+  const linksDiv = document.getElementById('links');
+  if (linksDiv) {
+    linksDiv.innerHTML = ''; // Clear existing links
+    data.links.forEach(link => {
+      const a = document.createElement('a');
+      a.className = 'link';
+      a.href = link.href;
+      a.target = '_blank';
+      a.innerHTML = `<i class="${link.icon}">&nbsp;</i>${link.text}`;
+      linksDiv.appendChild(a);
+    });
+  }
 }
+
+function loadData() {
+  return getCachedData()
+    .catch(() => {
+      // If data is not in the cache, fetch it from the server and save it to the cache
+      return fetchAndCacheData();
+    })
+    .then(data => {
+      // Check if the cached data is different from the data fetched from the server
+      if (cachedData && JSON.stringify(cachedData) !== JSON.stringify(data)) {
+        // If the data is different, reload the data from the server
+        return fetchAndCacheData();
+      }
+      return data;
+    })
+    .then(data => {
+      // Display the data
+      displayData(data);
+    })
+    .catch(error => {
+      console.error('Error loading data:', error);
+      // Show clearer error messages to users
+      const errorElement = document.getElementById('errorMessage');
+      if (errorElement) {
+        errorElement.textContent = 'An error occurred while loading data. Please try again later.';
+      }
+    });
+}
+
+// Load the data before displaying the page
+loadData();
 // End Of Main Function //
 
 // --- //
