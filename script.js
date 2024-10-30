@@ -76,29 +76,17 @@ function displayData(data) {
 
 function loadData() {
   return getCachedData()
-    .catch(() => {
-      // If data is not in the cache, fetch it from the server and save it to the cache
-      return fetchAndCacheData();
-    })
-    .then(data => {
-      // Check if the cached data is different from the data fetched from the server
-      if (cachedData && JSON.stringify(cachedData) !== JSON.stringify(data)) {
-        // If the data is different, reload the data from the server
-        return fetchAndCacheData();
-      }
-      return data;
-    })
     .then(data => {
       // Display the data
       displayData(data);
     })
-    .catch(error => {
-      console.error('Error loading data:', error);
-      // Show clearer error messages to users
-      const errorElement = document.getElementById('errorMessage');
-      if (errorElement) {
-        errorElement.textContent = 'An error occurred while loading data. Please try again later.';
-      }
+    .catch(() => {
+      // If data is not in the cache, fetch it from the server and save it to the cache
+      return fetchAndCacheData()
+        .then(data => {
+          // Display the data
+          displayData(data);
+        });
     });
 }
 
